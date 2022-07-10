@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"dengbowen.space","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="二十六，网络编程1，基本概念：（1）ip地址：​	用于唯一标识网络中的每一台计算机 ​	查看 ip 地址：ipconfig ​	ip 地址的表示形式：点分十进制 ​	每一个十进制数字的范围：0 ~ 255 ​	组成：网络地址 + 主机地址 （2）域名：​	为了方便记忆，解决 ip 记忆困难 ​	将 ip 地址映射成域名 （3）端口号：​	用于标识计算机上某个特定的网络程序 ​	表示形式：以整数形式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaNet-笔记">
+<meta property="og:url" content="https://dengbowen.space/2022/04/29/JavaNet-%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Bowen&#39;s Blog">
+<meta property="og:description" content="二十六，网络编程1，基本概念：（1）ip地址：​	用于唯一标识网络中的每一台计算机 ​	查看 ip 地址：ipconfig ​	ip 地址的表示形式：点分十进制 ​	每一个十进制数字的范围：0 ~ 255 ​	组成：网络地址 + 主机地址 （2）域名：​	为了方便记忆，解决 ip 记忆困难 ​	将 ip 地址映射成域名 （3）端口号：​	用于标识计算机上某个特定的网络程序 ​	表示形式：以整数形式">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-29T09:42:26.000Z">
+<meta property="article:modified_time" content="2022-04-29T09:43:18.000Z">
+<meta property="article:author" content="BowenDeng">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://dengbowen.space/2022/04/29/JavaNet-%E7%AC%94%E8%AE%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://dengbowen.space/2022/04/29/JavaNet-%E7%AC%94%E8%AE%B0/","path":"2022/04/29/JavaNet-笔记/","title":"JavaNet-笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JavaNet-笔记 | Bowen's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Bowen's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Poor ability but loves to play</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%8D%81%E5%85%AD%EF%BC%8C%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">二十六，网络编程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1%EF%BC%8C%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%EF%BC%9A"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">1，基本概念：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%881%EF%BC%89ip%E5%9C%B0%E5%9D%80%EF%BC%9A"><span class="nav-number">1.0.0.1.1.</span> <span class="nav-text">（1）ip地址：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E5%9F%9F%E5%90%8D%EF%BC%9A"><span class="nav-number">1.0.0.1.2.</span> <span class="nav-text">（2）域名：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E7%AB%AF%E5%8F%A3%E5%8F%B7%EF%BC%9A"><span class="nav-number">1.0.0.1.3.</span> <span class="nav-text">（3）端口号：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%884%EF%BC%89TCP-x2F-IP%E5%8D%8F%E8%AE%AE%EF%BC%9A"><span class="nav-number">1.0.0.1.4.</span> <span class="nav-text">（4）TCP&#x2F;IP协议：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2%EF%BC%8CInetAddress%E7%B1%BB"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">2，InetAddress类</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="nav-number">1.0.0.2.1.</span> <span class="nav-text">（1）相关方法：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E4%B8%BE%E4%BE%8B%EF%BC%9A"><span class="nav-number">1.0.0.2.2.</span> <span class="nav-text">（2）举例：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3%EF%BC%8CSocket%E5%A5%97%E6%8E%A5%E5%AD%97"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">3，Socket套接字</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%EF%BC%9A"><span class="nav-number">1.0.0.3.1.</span> <span class="nav-text">（1）基本概念：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E5%BB%BA%E7%AB%8Bsocket%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.0.0.3.2.</span> <span class="nav-text">（2）建立socket连接</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E7%BD%91%E7%BB%9C%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6"><span class="nav-number">1.0.0.3.3.</span> <span class="nav-text">（3）网络上传文件</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4%EF%BC%8Cnetstat%E6%8C%87%E4%BB%A4"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">4，netstat指令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5%EF%BC%8CUDP%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">5，UDP网络编程</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%EF%BC%9A"><span class="nav-number">1.0.0.5.1.</span> <span class="nav-text">（1）基本介绍：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B"><span class="nav-number">1.0.0.5.2.</span> <span class="nav-text">（2）基本流程</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E4%B8%BE%E4%BE%8B"><span class="nav-number">1.0.0.5.3.</span> <span class="nav-text">（3）举例</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">BowenDeng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dengbowen.space/2022/04/29/JavaNet-%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="BowenDeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bowen's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JavaNet-笔记 | Bowen's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JavaNet-笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-04-29 17:42:26 / 修改时间：17:43:18" itemprop="dateCreated datePublished" datetime="2022-04-29T17:42:26+08:00">2022-04-29</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="二十六，网络编程"><a href="#二十六，网络编程" class="headerlink" title="二十六，网络编程"></a>二十六，网络编程</h2><h5 id="1，基本概念："><a href="#1，基本概念：" class="headerlink" title="1，基本概念："></a>1，基本概念：</h5><h6 id="（1）ip地址："><a href="#（1）ip地址：" class="headerlink" title="（1）ip地址："></a>（1）ip地址：</h6><p>​	用于唯一标识网络中的每一台计算机</p>
+<p>​	查看 ip 地址：ipconfig</p>
+<p>​	ip 地址的表示形式：点分十进制</p>
+<p>​	每一个十进制数字的范围：0 ~ 255</p>
+<p>​	组成：网络地址 + 主机地址</p>
+<h6 id="（2）域名："><a href="#（2）域名：" class="headerlink" title="（2）域名："></a>（2）域名：</h6><p>​	为了方便记忆，解决 ip 记忆困难</p>
+<p>​	将 ip 地址映射成域名</p>
+<h6 id="（3）端口号："><a href="#（3）端口号：" class="headerlink" title="（3）端口号："></a>（3）端口号：</h6><p>​	用于标识计算机上某个特定的网络程序</p>
+<p>​	表示形式：以整数形式，范围 0 ~65535</p>
+<p>​	0 ~ 1034 已经被占用，比如 ssh 22， ftp 21，smtp 25，hrrp 80</p>
+<p>​	常见的网络程序端口号：tomcat 8080，mysql 3306，oracle 1521，sqlserver 1433.</p>
+<h6 id="（4）TCP-x2F-IP协议："><a href="#（4）TCP-x2F-IP协议：" class="headerlink" title="（4）TCP&#x2F;IP协议："></a>（4）TCP&#x2F;IP协议：</h6><p>​	网络通讯协议，这个协议是 Intenet 最基本的协议，是网络层 IP 和传输层 TCP 协议组成的。</p>
+<table>
+<thead>
+<tr>
+<th align="center">TCP协议（传输数据协议）</th>
+<th align="center">UDP协议（用户数据协议）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1，使用 TCP 协议前，需建立 TCP 连接，形成传输数据通道</td>
+<td align="center">1，将数据、源、目的封装成数据包，不需要建立连接</td>
+</tr>
+<tr>
+<td align="center">2，传输前，采用 三次握手 的方式，是最可靠的</td>
+<td align="center">2，每个数据大小限制在 64k 以内</td>
+</tr>
+<tr>
+<td align="center">3，TCP 协议进行通信的两个应用进程：客户端，服务端</td>
+<td align="center">3，因无需连接，故是不可靠的</td>
+</tr>
+<tr>
+<td align="center">4，在连接中可进行大数据量的传输</td>
+<td align="center">4，发送数据结束时无需释放资源，速度快</td>
+</tr>
+<tr>
+<td align="center">5，传输完毕，需要释放已建立的连接，效率低</td>
+<td align="center">5，举例：发短信</td>
+</tr>
+</tbody></table>
+<p>​	当客户端连接到服务器后，实际上客户端也是通过一个端口和服务器进行通讯的，这个端口是 TCP&#x2F;IP 来分配的</p>
+<h5 id="2，InetAddress类"><a href="#2，InetAddress类" class="headerlink" title="2，InetAddress类"></a>2，InetAddress类</h5><h6 id="（1）相关方法："><a href="#（1）相关方法：" class="headerlink" title="（1）相关方法："></a>（1）相关方法：</h6><p>getLocalHost		获取本机的 inetAddress 对象</p>
+<p>getByName		   根据指定主机名、域名获取 ip 地址的对象</p>
+<p>getHostName		 获取 InetAddress 对象的主机名</p>
+<p>getHostAddress	  获取 InetAddress 对象的地址 getHOstAddress</p>
+<h6 id="（2）举例："><a href="#（2）举例：" class="headerlink" title="（2）举例："></a>（2）举例：</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">API_</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">		</span><br><span class="line">        <span class="comment">//j</span></span><br><span class="line">        <span class="type">InetAddress</span> <span class="variable">localHost</span> <span class="operator">=</span> Inet4Address.getLocalHost();</span><br><span class="line">        System.out.println(localHost);</span><br><span class="line">        </span><br><span class="line">        <span class="type">InetAddress</span> <span class="variable">host1</span> <span class="operator">=</span> InetAddress.getByName(<span class="string">&quot;LAPTOP-507U88O4&quot;</span>);</span><br><span class="line">        System.out.println(host1);</span><br><span class="line"></span><br><span class="line">        <span class="type">InetAddress</span> <span class="variable">host2</span> <span class="operator">=</span> InetAddress.getByName(<span class="string">&quot;www.baidu.com&quot;</span>);</span><br><span class="line">        System.out.println(host2);</span><br><span class="line">        </span><br><span class="line">        <span class="type">String</span> <span class="variable">address</span> <span class="operator">=</span> host2.getHostAddress();</span><br><span class="line">        System.out.println(address);</span><br><span class="line">        </span><br><span class="line">        <span class="type">String</span> <span class="variable">hostName</span> <span class="operator">=</span> host2.getHostName();</span><br><span class="line">        System.out.println(hostName);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3，Socket套接字"><a href="#3，Socket套接字" class="headerlink" title="3，Socket套接字"></a>3，Socket套接字</h5><h6 id="（1）基本概念："><a href="#（1）基本概念：" class="headerlink" title="（1）基本概念："></a>（1）基本概念：</h6><p>​	通信两端都要有 Socket ，是两台机器的通讯端点</p>
+<p>​	网络通信可以看作是 Socket 与 Socket 之间的通信</p>
+<p>​	Socket 允许程序把网络当成一个流，数据在两个 Socket 间通过 IO 传输</p>
+<p>​	一般主动发起通信的应用程序属于客户端，等待通讯请求的为服务端</p>
+<h6 id="（2）建立socket连接"><a href="#（2）建立socket连接" class="headerlink" title="（2）建立socket连接"></a>（2）建立socket连接</h6><p><strong><u>使用字节流</u></strong></p>
+<p>​	服务器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">socketTCP01Server</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">ServerSocket</span> <span class="variable">serverSocket</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ServerSocket</span>(<span class="number">9999</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;等待连接...&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="type">Socket</span> <span class="variable">socket</span> <span class="operator">=</span> serverSocket.accept();</span><br><span class="line">        System.out.println(<span class="string">&quot;socket&quot;</span> + socket.getClass());</span><br><span class="line"></span><br><span class="line">        <span class="type">InputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> socket.getInputStream();</span><br><span class="line"></span><br><span class="line">        <span class="type">byte</span>[] buf = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="type">int</span> <span class="variable">readLen</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>((readLen = inputStream.read(buf)) != -<span class="number">1</span>)&#123;</span><br><span class="line">            System.out.println(<span class="keyword">new</span> <span class="title class_">String</span>(buf,<span class="number">0</span>,readLen));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取 Socket 相关联的输出流</span></span><br><span class="line">        <span class="type">OutputStream</span> <span class="variable">outputStream</span> <span class="operator">=</span> socket.getOutputStream();</span><br><span class="line">        outputStream.write(<span class="string">&quot;hello client&quot;</span>.getBytes());</span><br><span class="line">        socket.shutdownOutput();</span><br><span class="line"></span><br><span class="line">        outputStream.close();</span><br><span class="line">        inputStream.close();</span><br><span class="line">        socket.close();</span><br><span class="line">        serverSocket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>​	客户端</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SocketTCP01Client</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">Socket</span> <span class="variable">socket</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Socket</span>(InetAddress.getLocalHost(), <span class="number">9999</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;客户端 socket = &quot;</span> + socket.getClass());</span><br><span class="line"></span><br><span class="line">        <span class="type">OutputStream</span> <span class="variable">outputStream</span> <span class="operator">=</span> socket.getOutputStream();</span><br><span class="line"></span><br><span class="line">        outputStream.write(<span class="string">&quot;hello server&quot;</span>.getBytes());</span><br><span class="line">        socket.shutdownOutput();</span><br><span class="line"></span><br><span class="line">        <span class="type">InputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> socket.getInputStream();</span><br><span class="line">        <span class="type">byte</span>[] buf = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="type">int</span> <span class="variable">readLen</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>((readLen = inputStream.read(buf)) != -<span class="number">1</span>)&#123;</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="keyword">new</span> <span class="title class_">String</span>(buf,<span class="number">0</span>,readLen));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        outputStream.close();</span><br><span class="line"></span><br><span class="line">        socket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong><u>使用字符流</u></strong></p>
+<p>​	服务器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">socketTCP01Server</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">ServerSocket</span> <span class="variable">serverSocket</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ServerSocket</span>(<span class="number">9999</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;等待连接...&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="type">Socket</span> <span class="variable">socket</span> <span class="operator">=</span> serverSocket.accept();</span><br><span class="line">        System.out.println(<span class="string">&quot;socket&quot;</span> + socket.getClass());</span><br><span class="line"></span><br><span class="line">        <span class="type">InputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> socket.getInputStream();</span><br><span class="line"></span><br><span class="line">        <span class="type">BufferedReader</span> <span class="variable">bufferedReader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(inputStream));</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> bufferedReader.readLine();</span><br><span class="line">        System.out.println(str);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取 Socket 相关联的输出流</span></span><br><span class="line">        <span class="type">OutputStream</span> <span class="variable">outputStream</span> <span class="operator">=</span> socket.getOutputStream();</span><br><span class="line">        <span class="type">BufferedWriter</span> <span class="variable">bufferedWriter</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedWriter</span>(<span class="keyword">new</span> <span class="title class_">OutputStreamWriter</span>(outputStream));</span><br><span class="line">        bufferedWriter.write(<span class="string">&quot;hello client by charset&quot;</span>);</span><br><span class="line">        bufferedWriter.newLine();</span><br><span class="line">        bufferedWriter.flush();</span><br><span class="line"></span><br><span class="line">        outputStream.close();</span><br><span class="line">        inputStream.close();</span><br><span class="line">        socket.close();</span><br><span class="line">        serverSocket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​	客户端</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SocketTCP01Client</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">Socket</span> <span class="variable">socket</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Socket</span>(InetAddress.getLocalHost(), <span class="number">9999</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;客户端 socket = &quot;</span> + socket.getClass());</span><br><span class="line"></span><br><span class="line">        <span class="type">OutputStream</span> <span class="variable">outputStream</span> <span class="operator">=</span> socket.getOutputStream();</span><br><span class="line"></span><br><span class="line">        <span class="type">BufferedWriter</span> <span class="variable">bufferedWriter</span> <span class="operator">=</span></span><br><span class="line">                <span class="keyword">new</span> <span class="title class_">BufferedWriter</span>(<span class="keyword">new</span> <span class="title class_">OutputStreamWriter</span>(outputStream));</span><br><span class="line"></span><br><span class="line">        bufferedWriter.write(<span class="string">&quot;hello server by charset&quot;</span>);</span><br><span class="line">        bufferedWriter.newLine();</span><br><span class="line">        bufferedWriter.flush();</span><br><span class="line"></span><br><span class="line">        <span class="type">InputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> socket.getInputStream();</span><br><span class="line">        <span class="type">BufferedReader</span> <span class="variable">bufferedReader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(inputStream));</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> bufferedReader.readLine();</span><br><span class="line">        System.out.println(str);</span><br><span class="line"></span><br><span class="line">        outputStream.close();</span><br><span class="line"></span><br><span class="line">        socket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="（3）网络上传文件"><a href="#（3）网络上传文件" class="headerlink" title="（3）网络上传文件"></a>（3）网络上传文件</h6><p>服务端</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UploadFile</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//服务端在本机监听8888端口</span></span><br><span class="line">        <span class="type">ServerSocket</span> <span class="variable">serverSocket</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ServerSocket</span>(<span class="number">8888</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;服务器在8888端口监听.....&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="type">Socket</span> <span class="variable">socket</span> <span class="operator">=</span> serverSocket.accept();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//读取客户端发送的数据</span></span><br><span class="line">        <span class="type">BufferedInputStream</span> <span class="variable">bufferedInputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedInputStream</span>(socket.getInputStream());</span><br><span class="line">        <span class="type">byte</span>[] bytes = StreamUtils.streamToByteArray(bufferedInputStream);</span><br><span class="line"></span><br><span class="line">        <span class="type">String</span> <span class="variable">destFilePath</span> <span class="operator">=</span> <span class="string">&quot;image.png&quot;</span>;</span><br><span class="line">        <span class="type">BufferedOutputStream</span> <span class="variable">bufferedOutputStream</span> <span class="operator">=</span></span><br><span class="line">                <span class="keyword">new</span> <span class="title class_">BufferedOutputStream</span>(<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(destFilePath));</span><br><span class="line"></span><br><span class="line">        bufferedOutputStream.write(bytes);</span><br><span class="line">        bufferedOutputStream.close();</span><br><span class="line"></span><br><span class="line">        bufferedInputStream.close();</span><br><span class="line">        socket.close();</span><br><span class="line">        serverSocket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>客户端</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Receiver</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//客户端连接 8888，得到 socket 对象</span></span><br><span class="line">        <span class="type">Socket</span> <span class="variable">socket</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Socket</span>(InetAddress.getLocalHost(),<span class="number">8888</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建读取磁盘文件的输入流</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">filePath</span> <span class="operator">=</span> <span class="string">&quot;C:\\Users\\26317\\Desktop\\修改后\\IMG_9032.jpg&quot;</span>;</span><br><span class="line">        <span class="type">BufferedInputStream</span> <span class="variable">bufferedInputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedInputStream</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(filePath));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//bytes 就是 filePath 对应的字节数组</span></span><br><span class="line">        <span class="type">byte</span>[] bytes = StreamUtils.streamToByteArray(bufferedInputStream);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//通过 socket 获取到输出流，将 bytes 数据发送给服务端。</span></span><br><span class="line">        <span class="type">BufferedOutputStream</span> <span class="variable">bufferedOutputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedOutputStream</span>(socket.getOutputStream());</span><br><span class="line">        bufferedOutputStream.write(bytes);</span><br><span class="line">        bufferedInputStream.close();</span><br><span class="line">        socket.shutdownOutput();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//关闭相关流</span></span><br><span class="line">        bufferedOutputStream.close();</span><br><span class="line">        socket.close();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>辅助工具类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StreamUtils</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">byte</span> <span class="meta">@NotNull</span> [] streamToByteArray(<span class="meta">@NotNull</span> InputStream is)<span class="keyword">throws</span> Exception&#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">ByteArrayOutputStream</span> <span class="variable">bos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ByteArrayOutputStream</span>();</span><br><span class="line">        <span class="type">byte</span>[] b = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1024</span>];</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> len;</span><br><span class="line">        <span class="keyword">while</span>((len=is.read(b))!=-<span class="number">1</span>)&#123;</span><br><span class="line"></span><br><span class="line">            bos.write(b,<span class="number">0</span>,len);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">byte</span>[] array = bos.toByteArray();</span><br><span class="line">        bos.close();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> array;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="4，netstat指令"><a href="#4，netstat指令" class="headerlink" title="4，netstat指令"></a>4，netstat指令</h5><p>查看当前主机网络情况</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -an</span><br></pre></td></tr></table></figure>
+
+<p>可以分页显示</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -an|<span class="built_in">more</span></span><br></pre></td></tr></table></figure>
+
+<p>查看哪个程序在用某个端口</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -anb</span><br></pre></td></tr></table></figure>
+
+<p>LISTENING 表示某个端口在监听</p>
+<p>如果有一个外部程序连接到端口，则会显示一条连接信息</p>
+<h5 id="5，UDP网络编程"><a href="#5，UDP网络编程" class="headerlink" title="5，UDP网络编程"></a>5，UDP网络编程</h5><h6 id="（1）基本介绍："><a href="#（1）基本介绍：" class="headerlink" title="（1）基本介绍："></a>（1）基本介绍：</h6><p>​	类 DatagramSocket 和 DatagramPacket （数据包）实现了基于 UDP 协议的网络程序。</p>
+<p>​	UDP数据包通过数据包套接字 DatagramSocket 发送和接收，系统不保证 UDP 数据一定能够安全送到目的地，也不能确定什么时候可以抵达。</p>
+<p>​	DatagramPacket 对象封装了 UDP 数据包，在数据包中包含了发送端的 IP 地址和端口号以及接收端的 IP 地址和端口号。</p>
+<p>​	UDP 协议中每个数据包都给出了完整的地址信息，因此无需建立发送方和接收方的连接。</p>
+<h6 id="（2）基本流程"><a href="#（2）基本流程" class="headerlink" title="（2）基本流程"></a>（2）基本流程</h6><p>​	建立发送端和接收端</p>
+<p>​	建立数据包</p>
+<p>​	调用 DatagramSocket 的发送，接受方法</p>
+<p>​	关闭 DatagramSocket</p>
+<h6 id="（3）举例"><a href="#（3）举例" class="headerlink" title="（3）举例"></a>（3）举例</h6><p>接收端</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UDPServer</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">DatagramSocket</span> <span class="variable">datagramSocket</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DatagramSocket</span>(<span class="number">9999</span>);</span><br><span class="line">        <span class="type">byte</span>[] bytes = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1024</span>];</span><br><span class="line"></span><br><span class="line">        <span class="type">DatagramPacket</span> <span class="variable">datagramPacket</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DatagramPacket</span>(bytes, bytes.length);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;接收端就绪....&quot;</span>);</span><br><span class="line">        datagramSocket.receive(datagramPacket);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">length</span> <span class="operator">=</span> datagramPacket.getLength();</span><br><span class="line">        <span class="type">byte</span>[] data = datagramPacket.getData();</span><br><span class="line"></span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(data,<span class="number">0</span>,length);</span><br><span class="line">        System.out.println(str);</span><br><span class="line"></span><br><span class="line">        datagramSocket.close();</span><br><span class="line">        System.out.println(<span class="string">&quot;server out&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>客户端</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UDPClient</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">DatagramSocket</span> <span class="variable">datagramSocket</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DatagramSocket</span>(<span class="number">9998</span>);</span><br><span class="line"></span><br><span class="line">        <span class="type">byte</span>[] bytes = <span class="string">&quot;hello world&quot;</span>.getBytes();</span><br><span class="line">        <span class="type">DatagramPacket</span> <span class="variable">datagramPacket</span> <span class="operator">=</span></span><br><span class="line">                <span class="keyword">new</span> <span class="title class_">DatagramPacket</span>(bytes, bytes.length,</span><br><span class="line">                        InetAddress.getByName(<span class="string">&quot;192.168.3.123&quot;</span>),</span><br><span class="line">                        <span class="number">9999</span>);</span><br><span class="line"></span><br><span class="line">        datagramSocket.send(datagramPacket);</span><br><span class="line"></span><br><span class="line">        datagramSocket.close();</span><br><span class="line">        System.out.println(<span class="string">&quot;client out&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/04/29/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E7%AC%94%E8%AE%B0/" rel="prev" title="Java多线程-笔记">
+                  <i class="fa fa-chevron-left"></i> Java多线程-笔记
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/05/03/hello-world/" rel="next" title="Hello World">
+                  Hello World <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BowenDeng</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

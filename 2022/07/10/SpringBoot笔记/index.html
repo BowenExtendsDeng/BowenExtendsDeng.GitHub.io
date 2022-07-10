@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"dengbowen.space","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="SpringBoot一，Hello World创建方式：  官网配置下载压缩包解压 idea中内置网站下载  12345678910111213package com.example.sblearn1.controller;import org.springframework.web.bind.annotation.RequestMapping;import org.springframework">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bowen&#39;s Blog">
+<meta property="og:url" content="https://dengbowen.space/2022/07/10/SpringBoot%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Bowen&#39;s Blog">
+<meta property="og:description" content="SpringBoot一，Hello World创建方式：  官网配置下载压缩包解压 idea中内置网站下载  12345678910111213package com.example.sblearn1.controller;import org.springframework.web.bind.annotation.RequestMapping;import org.springframework">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-10T13:36:11.162Z">
+<meta property="article:modified_time" content="2022-07-10T13:37:02.729Z">
+<meta property="article:author" content="BowenDeng">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://dengbowen.space/2022/07/10/SpringBoot%E7%AC%94%E8%AE%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://dengbowen.space/2022/07/10/SpringBoot%E7%AC%94%E8%AE%B0/","path":"2022/07/10/SpringBoot笔记/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Bowen's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Bowen's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Poor ability but loves to play</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringBoot"><span class="nav-number">1.</span> <span class="nav-text">SpringBoot</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%EF%BC%8CHello-World"><span class="nav-number">1.1.</span> <span class="nav-text">一，Hello World</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%EF%BC%8C%E5%8E%9F%E7%90%86%E7%AE%80%E8%BF%B0"><span class="nav-number">1.2.</span> <span class="nav-text">二，原理简述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%EF%BC%8C%E4%B8%BB%E5%90%AF%E5%8A%A8%E7%B1%BB%E8%BF%90%E8%A1%8C%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">三，主启动类运行方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%EF%BC%8Cyaml%E8%B5%8B%E5%80%BC%E5%B1%9E%E6%80%A7"><span class="nav-number">1.4.</span> <span class="nav-text">四，yaml赋值属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%EF%BC%8CJSR303%E6%A0%A1%E9%AA%8C"><span class="nav-number">1.5.</span> <span class="nav-text">五，JSR303校验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%EF%BC%8CSpringBoot%E5%B8%B8%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.6.</span> <span class="nav-text">六，SpringBoot常用步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%EF%BC%8CSpringBoot%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-number">1.6.0.1.</span> <span class="nav-text">1，SpringBoot总结：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%EF%BC%8C%E8%A6%81%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.6.0.2.</span> <span class="nav-text">2，要解决的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%EF%BC%8C%E5%AF%BC%E5%85%A5%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90"><span class="nav-number">1.6.0.3.</span> <span class="nav-text">3，导入静态资源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%EF%BC%8C%E9%85%8D%E7%BD%AE%E9%A6%96%E9%A1%B5"><span class="nav-number">1.6.0.4.</span> <span class="nav-text">4，配置首页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5%EF%BC%8C%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E"><span class="nav-number">1.6.0.5.</span> <span class="nav-text">5，模板引擎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6%EF%BC%8C%E8%AE%BE%E8%AE%A1%E7%BD%91%E7%AB%99%E6%B5%81%E7%A8%8B%EF%BC%9A"><span class="nav-number">1.6.0.6.</span> <span class="nav-text">6，设计网站流程：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7%EF%BC%8CMVC-%E6%8B%93%E5%B1%95%EF%BC%9A"><span class="nav-number">1.6.0.7.</span> <span class="nav-text">7，MVC 拓展：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%EF%BC%8C%E6%95%B4%E5%90%88%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.7.</span> <span class="nav-text">七，整合数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%EF%BC%8CSpringSecurity"><span class="nav-number">1.8.</span> <span class="nav-text">八，SpringSecurity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%EF%BC%8CShiro"><span class="nav-number">1.9.</span> <span class="nav-text">九，Shiro</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%EF%BC%8CSwagger"><span class="nav-number">1.10.</span> <span class="nav-text">十，Swagger</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%EF%BC%8C%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%EF%BC%9A"><span class="nav-number">1.10.0.1.</span> <span class="nav-text">1，前后端分离：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%EF%BC%8CSwagger%EF%BC%9A"><span class="nav-number">1.10.0.2.</span> <span class="nav-text">2，Swagger：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%B8%80%EF%BC%8CSpringBoot%E9%82%AE%E4%BB%B6"><span class="nav-number">1.11.</span> <span class="nav-text">十一，SpringBoot邮件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%BA%8C%EF%BC%8C%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.12.</span> <span class="nav-text">十二，定时任务</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">BowenDeng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dengbowen.space/2022/07/10/SpringBoot%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="BowenDeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bowen's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Bowen's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-07-10 21:36:11 / 修改时间：21:37:02" itemprop="dateCreated datePublished" datetime="2022-07-10T21:36:11+08:00">2022-07-10</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h1><h2 id="一，Hello-World"><a href="#一，Hello-World" class="headerlink" title="一，Hello World"></a>一，Hello World</h2><p>创建方式：</p>
+<ul>
+<li>官网配置下载压缩包解压</li>
+<li>idea中内置网站下载</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.sblearn1.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/hello&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">hello</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二，原理简述"><a href="#二，原理简述" class="headerlink" title="二，原理简述"></a>二，原理简述</h2><ul>
+<li>springbooot 在启动的时候，从类路径下 &#x2F;META-INF&#x2F;spring.factories 获取指定的值</li>
+<li>将这些自动配置的类导入容器，自动配置就会生效，帮我们进行自动配置</li>
+<li>以前我们需要自动配置的东西，现在springboot帮我们做了</li>
+<li>整合JavaEE，解决方案和自动配置都在spring-boot-autoconfigure-2.2.0.RELEASE.jar这个包下</li>
+<li>他会把所有需要导入的组件，以类名形式返回，这些组件就会被添加到容器中</li>
+<li>容器中也会存在非常多的xxxAutoConfiguration文件，就是这些类给容器中导入了场景需要的所有组件</li>
+</ul>
+<h2 id="三，主启动类运行方法"><a href="#三，主启动类运行方法" class="headerlink" title="三，主启动类运行方法"></a>三，主启动类运行方法</h2><ul>
+<li>推断应用是普通项目还是Web项目</li>
+<li>查找并加载所有可初始化容器，设置到initializer属性中</li>
+<li>找出所有的应用程序监听器，设置到 steners 属性中</li>
+<li>推断并设置 main 方法的定义类，找到运行的主类</li>
+</ul>
+<h2 id="四，yaml赋值属性"><a href="#四，yaml赋值属性" class="headerlink" title="四，yaml赋值属性"></a>四，yaml赋值属性</h2><p>yaml</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">person:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">bowen</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">18</span></span><br><span class="line">  <span class="attr">happy:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">birth:</span> <span class="number">2019</span><span class="string">/11/01</span></span><br><span class="line">  <span class="attr">map:</span> &#123;<span class="attr">k1:</span> <span class="string">v1</span>, <span class="attr">k2:</span> <span class="string">v2</span>&#125;</span><br><span class="line">  <span class="attr">list:</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">  <span class="attr">dog:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">wang</span> <span class="string">cai</span></span><br><span class="line">    <span class="attr">age:</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<p>pojo</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.bootstudy1.pojo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.context.properties.ConfigurationProperties;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ConfigurationProperties(prefix = &quot;person&quot;)</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="meta">@ToString</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> Boolean happy;</span><br><span class="line">    <span class="keyword">private</span> Dog dog;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;String, Object&gt; map;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Object&gt; list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>@Test</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.bootstudy1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.example.bootstudy1.pojo.Person;</span><br><span class="line"><span class="keyword">import</span> org.junit.jupiter.api.Test;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.test.context.SpringBootTest;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BootStudy1ApplicationTests</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Person dog;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">contextLoads</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(dog);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>yaml随机赋值</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">age:</span> <span class="string">$&#123;random.int&#125;</span></span><br><span class="line"><span class="attr">id:</span> <span class="string">$&#123;random.uuid&#125;</span></span><br><span class="line"><span class="comment"># 占位符号，如果yaml中无param属性，则用hello当作默认值</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">$&#123;person.param:hello&#125;_wang</span> <span class="string">cai</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="五，JSR303校验"><a href="#五，JSR303校验" class="headerlink" title="五，JSR303校验"></a>五，JSR303校验</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Null</span> <span class="comment">//被注释的元素必须为 null</span></span><br><span class="line"><span class="meta">@NotNull</span> <span class="comment">//被注释的元素必须不为 null</span></span><br><span class="line"><span class="meta">@AssertTrue</span> <span class="comment">//被注释的元素必须为 true</span></span><br><span class="line"><span class="meta">@AssertFalse</span> <span class="comment">//被注释的元素必须为 False</span></span><br><span class="line"><span class="meta">@Min(Value)</span> <span class="comment">//被注释的元素必须大于等于指定最小值</span></span><br><span class="line"><span class="meta">@Max(Value)</span> <span class="comment">//被注释的元素必须小于等于指定最小值</span></span><br><span class="line"><span class="meta">@DecimalMin(Value)</span> <span class="comment">//被注释的元素必须大于等于指定最小值</span></span><br><span class="line"><span class="meta">@DecimalMax(Value)</span> <span class="comment">//被注释的元素必须小于等于指定最小值</span></span><br><span class="line"><span class="meta">@Size(max, min)</span>	<span class="comment">//被注释的元素必须在这之间</span></span><br><span class="line"><span class="meta">@Digits(integer, fraction)</span> <span class="comment">//被注释的元素是数字，大小在可接受范围内</span></span><br><span class="line"><span class="meta">@Past</span> <span class="comment">//被注释的元素必须是过去的日期</span></span><br><span class="line"><span class="meta">@Future</span> <span class="comment">//被注释的元素必须是未来的日期</span></span><br><span class="line"><span class="meta">@Pattern(Value)</span> <span class="comment">//被注释的元素必须符合指定的正则表达式</span></span><br><span class="line"><span class="meta">@Email</span> <span class="comment">//被注释的元素必须是电子邮件</span></span><br><span class="line"><span class="meta">@Length</span> <span class="comment">//被注释的元素字符串大小必须在指定范围内</span></span><br><span class="line"><span class="meta">@NotEmpty</span> <span class="comment">//被注释的字符串必须非空</span></span><br><span class="line"><span class="meta">@Range</span> <span class="comment">//被注释的元素必须在合适的范围内</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="六，SpringBoot常用步骤"><a href="#六，SpringBoot常用步骤" class="headerlink" title="六，SpringBoot常用步骤"></a>六，SpringBoot常用步骤</h2><h4 id="1，SpringBoot总结："><a href="#1，SpringBoot总结：" class="headerlink" title="1，SpringBoot总结："></a>1，SpringBoot总结：</h4><p>spring boot 到底干了啥，能修改什么，能拓展什么</p>
+<ul>
+<li>xxxxAutoConfiguration向容器自动导入配置文件</li>
+<li>xxxxProperties自动配置类，装配配置文件中自定义一些内容</li>
+</ul>
+<p>启动配置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@EnableAsync</span><span class="comment">//开启异步注解功能</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2，要解决的问题"><a href="#2，要解决的问题" class="headerlink" title="2，要解决的问题"></a>2，要解决的问题</h4><ul>
+<li>导入静态资源</li>
+<li>首页</li>
+<li>jsp，模板引擎（Thyme leaf）</li>
+<li>装配拓展SpringMVC</li>
+<li>增删改查</li>
+<li>拦截器</li>
+<li>国际化</li>
+</ul>
+<h4 id="3，导入静态资源"><a href="#3，导入静态资源" class="headerlink" title="3，导入静态资源"></a>3，导入静态资源</h4><ol>
+<li>在Spring Boot中，可以用以下方式导入静态资源：<ul>
+<li>webjars（不常用）</li>
+<li>public，static，&#x2F;**，resources</li>
+</ul>
+</li>
+<li>优先级：resource &gt; static（默认）&gt; public</li>
+</ol>
+<h4 id="4，配置首页"><a href="#4，配置首页" class="headerlink" title="4，配置首页"></a>4，配置首页</h4><p>去掉默认图标(老版本)</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring.mvc.favicon.enabled</span>=<span class="string">false</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="5，模板引擎"><a href="#5，模板引擎" class="headerlink" title="5，模板引擎"></a>5，模板引擎</h4><p>依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.thymeleaf<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>thymeleaf-spring5<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.thymeleaf.extras<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>thymeleaf-extras-java8time<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="6，设计网站流程："><a href="#6，设计网站流程：" class="headerlink" title="6，设计网站流程："></a>6，设计网站流程：</h4><ol>
+<li>前端页面</li>
+<li>设计数据库</li>
+<li>前端可独立运行</li>
+<li>数据接口对接</li>
+<li>前后端联调</li>
+</ol>
+<h4 id="7，MVC-拓展："><a href="#7，MVC-拓展：" class="headerlink" title="7，MVC 拓展："></a>7，MVC 拓展：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyMvcConfig</span> <span class="keyword">implements</span> <span class="title class_">WebMvcConfigurer</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addViewControllers</span><span class="params">(org.springframework.web.servlet.config.annotation.ViewControllerRegistry registry)</span> &#123;</span><br><span class="line">        registry.addViewController(<span class="string">&quot;/&quot;</span>).setViewName(<span class="string">&quot;index&quot;</span>);</span><br><span class="line">        registry.addViewController(<span class="string">&quot;/index.html&quot;</span>).setViewName(<span class="string">&quot;index&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="七，整合数据库"><a href="#七，整合数据库" class="headerlink" title="七，整合数据库"></a>七，整合数据库</h2><p>application.yml中配置数据库</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">	<span class="attr">datasource:</span></span><br><span class="line">		<span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">		<span class="attr">password:</span> <span class="number">123456</span></span><br><span class="line">		<span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/mybatis?userUnicode=true&amp;characterEncoding=utf-8</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="八，SpringSecurity"><a href="#八，SpringSecurity" class="headerlink" title="八，SpringSecurity"></a>八，SpringSecurity</h2><p>在 Web 开发中，安全第一位，过滤器，拦截器</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-security<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="九，Shiro"><a href="#九，Shiro" class="headerlink" title="九，Shiro"></a>九，Shiro</h2><p>导入依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.shiro<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>shiro-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.9.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>resource下配置文件：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># =============================================================================</span></span><br><span class="line"><span class="comment"># Tutorial INI configuration</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Usernames/passwords are based on the classic Mel Brooks&#x27; film &quot;Spaceballs&quot; :)</span></span><br><span class="line"><span class="comment"># =============================================================================</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># -----------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Users and their (optional) assigned roles</span></span><br><span class="line"><span class="comment"># username = password, role1, role2, ..., roleN</span></span><br><span class="line"><span class="comment"># -----------------------------------------------------------------------------</span></span><br><span class="line"><span class="section">[users]</span></span><br><span class="line"><span class="attr">root</span> = secret, admin</span><br><span class="line"><span class="attr">guest</span> = guest, guest</span><br><span class="line"><span class="attr">presidentskroob</span> = <span class="number">12345</span>, president</span><br><span class="line"><span class="attr">darkhelmet</span> = ludicrousspeed, darklord, schwartz</span><br><span class="line"><span class="attr">lonestarr</span> = vespa, goodguy, schwartz</span><br><span class="line"></span><br><span class="line"><span class="comment"># -----------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Roles with assigned permissions</span></span><br><span class="line"><span class="comment"># roleName = perm1, perm2, ..., permN</span></span><br><span class="line"><span class="comment"># -----------------------------------------------------------------------------</span></span><br><span class="line"><span class="section">[roles]</span></span><br><span class="line"><span class="attr">admin</span> = *</span><br><span class="line"><span class="attr">schwartz</span> = lightsaber:*</span><br><span class="line"><span class="attr">goodguy</span> = winnebago:drive:eagle5</span><br></pre></td></tr></table></figure>
+
+<p>hello world快速入门：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ShiroQuickStart</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">transient</span> <span class="type">Logger</span> <span class="variable">log</span> <span class="operator">=</span> LoggerFactory.getLogger(Tutorial.class);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        log.info(<span class="string">&quot;My First Apache Shiro Application&quot;</span>);</span><br><span class="line"></span><br><span class="line">        Factory&lt;SecurityManager&gt; factory = <span class="keyword">new</span> <span class="title class_">IniSecurityManagerFactory</span>(<span class="string">&quot;classpath:shiro.ini&quot;</span>);</span><br><span class="line">        <span class="type">SecurityManager</span> <span class="variable">securityManager</span> <span class="operator">=</span> factory.getInstance();</span><br><span class="line">        SecurityUtils.setSecurityManager(securityManager);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// get the currently executing user:</span></span><br><span class="line">        <span class="type">Subject</span> <span class="variable">currentUser</span> <span class="operator">=</span> SecurityUtils.getSubject();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Do some stuff with a Session (no need for a web or EJB container!!!)</span></span><br><span class="line">        <span class="type">Session</span> <span class="variable">session</span> <span class="operator">=</span> currentUser.getSession();</span><br><span class="line">        session.setAttribute(<span class="string">&quot;someKey&quot;</span>, <span class="string">&quot;aValue&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> (String) session.getAttribute(<span class="string">&quot;someKey&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (value.equals(<span class="string">&quot;aValue&quot;</span>)) &#123;</span><br><span class="line">            log.info(<span class="string">&quot;Retrieved the correct value! [&quot;</span> + value + <span class="string">&quot;]&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// let&#x27;s login the current user so we can check against roles and permissions:</span></span><br><span class="line">        <span class="keyword">if</span> (!currentUser.isAuthenticated()) &#123;</span><br><span class="line">            <span class="type">UsernamePasswordToken</span> <span class="variable">token</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">UsernamePasswordToken</span>(<span class="string">&quot;lonestarr&quot;</span>, <span class="string">&quot;vespa&quot;</span>);</span><br><span class="line">            token.setRememberMe(<span class="literal">true</span>);</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="comment">//执行登录操作</span></span><br><span class="line">                currentUser.login(token);</span><br><span class="line">                <span class="comment">//用户名不存在</span></span><br><span class="line">            &#125; <span class="keyword">catch</span> (UnknownAccountException uae) &#123;</span><br><span class="line">                log.info(<span class="string">&quot;There is no user with username of &quot;</span> + token.getPrincipal());</span><br><span class="line">                <span class="comment">//密码错误</span></span><br><span class="line">            &#125; <span class="keyword">catch</span> (IncorrectCredentialsException ice) &#123;</span><br><span class="line">                log.info(<span class="string">&quot;Password for account &quot;</span> + token.getPrincipal() + <span class="string">&quot; was incorrect!&quot;</span>);</span><br><span class="line">                <span class="comment">//用户被锁定</span></span><br><span class="line">            &#125; <span class="keyword">catch</span> (LockedAccountException lae) &#123;</span><br><span class="line">                log.info(<span class="string">&quot;The account for username &quot;</span> + token.getPrincipal() + <span class="string">&quot; is locked.  &quot;</span> +</span><br><span class="line">                        <span class="string">&quot;Please contact your administrator to unlock it.&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// ... catch more exceptions here (maybe custom ones specific to your application?</span></span><br><span class="line">            <span class="keyword">catch</span> (AuthenticationException ae) &#123;</span><br><span class="line">                <span class="comment">//unexpected condition?  error?</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//say who they are:</span></span><br><span class="line">        <span class="comment">//print their identifying principal (in this case, a username):</span></span><br><span class="line">        log.info(<span class="string">&quot;User [&quot;</span> + currentUser.getPrincipal() + <span class="string">&quot;] logged in successfully.&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//test a role:</span></span><br><span class="line">        <span class="keyword">if</span> (currentUser.hasRole(<span class="string">&quot;schwartz&quot;</span>)) &#123;</span><br><span class="line">            log.info(<span class="string">&quot;May the Schwartz be with you!&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            log.info(<span class="string">&quot;Hello, mere mortal.&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//test a typed permission (not instance-level)</span></span><br><span class="line">        <span class="keyword">if</span> (currentUser.isPermitted(<span class="string">&quot;lightsaber:wield&quot;</span>)) &#123;</span><br><span class="line">            log.info(<span class="string">&quot;You may use a lightsaber ring.  Use it wisely.&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            log.info(<span class="string">&quot;Sorry, lightsaber rings are for schwartz masters only.&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//a (very powerful) Instance Level permission:</span></span><br><span class="line">        <span class="keyword">if</span> (currentUser.isPermitted(<span class="string">&quot;winnebago:drive:eagle5&quot;</span>)) &#123;</span><br><span class="line">            log.info(<span class="string">&quot;You are permitted to &#x27;drive&#x27; the winnebago with license plate (id) &#x27;eagle5&#x27;.  &quot;</span> +</span><br><span class="line">                    <span class="string">&quot;Here are the keys - have fun!&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            log.info(<span class="string">&quot;Sorry, you aren&#x27;t allowed to drive the &#x27;eagle5&#x27; winnebago!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//all done - log out!</span></span><br><span class="line">        currentUser.logout();</span><br><span class="line"></span><br><span class="line">        System.exit(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到几个关键逻辑</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Subject</span> <span class="variable">currentUser</span> <span class="operator">=</span> SecurityUtils.getSubject();<span class="comment">//获取用户</span></span><br><span class="line"><span class="type">Session</span> <span class="variable">session</span> <span class="operator">=</span> currentUser.getSession();<span class="comment">//获取session</span></span><br><span class="line">currentUser.isAuthenticated()<span class="comment">//是否登录</span></span><br><span class="line">token.getPrincipal()<span class="comment">//获取当前用户认证</span></span><br><span class="line">currentUser.hasRole(<span class="string">&quot;schwartz&quot;</span>)<span class="comment">//用户是否有角色</span></span><br><span class="line">currentUser.isPermitted(<span class="string">&quot;lightsaber:wield&quot;</span>)<span class="comment">//用户是否有权限</span></span><br><span class="line">currentUser.logout();<span class="comment">//用户登出</span></span><br></pre></td></tr></table></figure>
+
+<p>整合到SpringBoot中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.managesystem.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.web.mgt.DefaultWebSecurityManager;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ShiroConfig</span> &#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> DefaultWebSecurityManager <span class="title function_">securityManager</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">DefaultWebSecurityManager</span> <span class="variable">securityManager</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DefaultWebSecurityManager</span>();</span><br><span class="line">        securityManager.setRealm(userRealm());</span><br><span class="line">        <span class="keyword">return</span> securityManager;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> UserRealm <span class="title function_">userRealm</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">UserRealm</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> ShiroFilterFactoryBean <span class="title function_">shiroFilter</span><span class="params">(DefaultWebSecurityManager securityManager)</span> &#123;</span><br><span class="line">        <span class="type">ShiroFilterFactoryBean</span> <span class="variable">bean</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ShiroFilterFactoryBean</span>();</span><br><span class="line">        <span class="comment">//设置安全管理器：</span></span><br><span class="line">        bean.setSecurityManager(securityManager);</span><br><span class="line">        <span class="comment">//添加内置过滤器：</span></span><br><span class="line">        <span class="comment">//authc:所有url都必须认证通过才可以访问; anon:所有url都可以匿名访问; user:配置记住我或认证通过可以访问;</span></span><br><span class="line">        <span class="comment">//perms:该url必须得到权限才可以访问; roles:该url必须得到角色权限才可以访问; logout:该url可以退出登录;</span></span><br><span class="line">        Map&lt;String, String&gt; filterMap = <span class="keyword">new</span> <span class="title class_">LinkedHashMap</span>&lt;&gt;();</span><br><span class="line">        filterMap.put(<span class="string">&quot;/static/**&quot;</span>, <span class="string">&quot;anon&quot;</span>);</span><br><span class="line">        filterMap.put(<span class="string">&quot;/login&quot;</span>, <span class="string">&quot;anon&quot;</span>);</span><br><span class="line">        filterMap.put(<span class="string">&quot;/logout&quot;</span>, <span class="string">&quot;logout&quot;</span>);</span><br><span class="line">        filterMap.put(<span class="string">&quot;/&quot;</span>, <span class="string">&quot;anon&quot;</span>);</span><br><span class="line">        filterMap.put(<span class="string">&quot;/**&quot;</span>, <span class="string">&quot;authc&quot;</span>);</span><br><span class="line">        bean.setFilterChainDefinitionMap(filterMap);</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="十，Swagger"><a href="#十，Swagger" class="headerlink" title="十，Swagger"></a>十，Swagger</h2><h4 id="1，前后端分离："><a href="#1，前后端分离：" class="headerlink" title="1，前后端分离："></a>1，前后端分离：</h4><p>Vue + SpringBoot</p>
+<ul>
+<li>后端：后端控制层，服务层，数据访问层</li>
+<li>前端：前端控制层，视图层<ul>
+<li>伪造后端数据：json</li>
+</ul>
+</li>
+<li>前后端如何交互：调用API</li>
+<li>前后端相对独立，松耦合</li>
+<li>前后端可以部署在不同的服务器上</li>
+</ul>
+<p>问题：</p>
+<ul>
+<li>前后端集成联调，前端人员后后端人员不能做到及时协商，需高效沟通尽早解决</li>
+</ul>
+<p>解决方案：</p>
+<ul>
+<li>制定 schema，实时更新 API，降低集成的风险</li>
+<li>早些年：制定 Word 计划文档</li>
+<li>前后端分离：<ul>
+<li>前后端测试接口：Postman</li>
+<li>后端提供接口，需要实时更新的消息及改动</li>
+</ul>
+</li>
+</ul>
+<h4 id="2，Swagger："><a href="#2，Swagger：" class="headerlink" title="2，Swagger："></a>2，Swagger：</h4><ul>
+<li>流行的 API 框架</li>
+<li>RestFul Api 文档在线自动生成工具&#x3D;》Api文档与Api定义同步更新</li>
+<li>直接运行，可以在线测试Api接口</li>
+<li>支持多种语言</li>
+</ul>
+<p>导入</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>配置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.builders.PathSelectors;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.builders.RequestHandlerSelectors;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.service.ApiInfo;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.spi.DocumentationType;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.spring.web.plugins.Docket;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.swagger2.annotations.EnableSwagger2;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger2</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SwaggerConfig</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> Docket <span class="title function_">docket</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Docket</span>(DocumentationType.SWAGGER_2)</span><br><span class="line">                .apiInfo(apiInfo())</span><br><span class="line">                .select()</span><br><span class="line">                <span class="comment">// 配置扫描接口的方式</span></span><br><span class="line">                .apis(RequestHandlerSelectors.basePackage(<span class="string">&quot;com.example.shirotest.controller&quot;</span>))</span><br><span class="line">                .paths(PathSelectors.ant(<span class="string">&quot;/**&quot;</span>))</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 配置 Swagger 基本信息=apiInfo</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> ApiInfo <span class="title function_">apiInfo</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ApiInfo</span>(</span><br><span class="line">                <span class="string">&quot;ShiroTest API文档&quot;</span>,</span><br><span class="line">                <span class="string">&quot;ShiroTest API文档&quot;</span>,</span><br><span class="line">                <span class="string">&quot;1.0&quot;</span>,</span><br><span class="line">                <span class="string">&quot;urn:tos&quot;</span>,</span><br><span class="line">                <span class="string">&quot;ShiroTest&quot;</span>,</span><br><span class="line">                <span class="string">&quot;Api License&quot;</span>,</span><br><span class="line">                <span class="string">&quot;Api License URL&quot;</span></span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="十一，SpringBoot邮件"><a href="#十一，SpringBoot邮件" class="headerlink" title="十一，SpringBoot邮件"></a>十一，SpringBoot邮件</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-mail<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>使用配置</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring.mail.username</span>=<span class="string">xxx@qq.com</span></span><br><span class="line"><span class="attr">spring.mail.password</span>=<span class="string">xxxxxxx</span></span><br><span class="line"><span class="attr">spring.mail.host</span>=<span class="string">smtp.qq.com</span></span><br><span class="line"><span class="comment"># 开启加密验证</span></span><br><span class="line"><span class="attr">spring.mail.properties.mail.smtp.enable</span>=<span class="string">true</span></span><br></pre></td></tr></table></figure>
+
+<p>逻辑编写</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SpringMail</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    JavaMailSenderImpl mailSender;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">contextLoads</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">SimpleMailMessage</span> <span class="variable">message</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SimpleMailMessage</span>();</span><br><span class="line"></span><br><span class="line">        message.setSubject(<span class="string">&quot;header&quot;</span>);</span><br><span class="line">        message.setText(<span class="string">&quot;body&quot;</span>);</span><br><span class="line">        message.setTo(<span class="string">&quot;xxxx@qq.com&quot;</span>);</span><br><span class="line">        message.setFrom(<span class="string">&quot;yyyy@qq.com&quot;</span>);</span><br><span class="line"></span><br><span class="line">        mailSender.send(message);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">contextLoads2</span><span class="params">()</span> <span class="keyword">throws</span> MessagingException &#123;</span><br><span class="line">        <span class="type">MimeMessage</span> <span class="variable">message</span> <span class="operator">=</span> mailSender.createMimeMessage();</span><br><span class="line">        <span class="type">MimeMessageHelper</span> <span class="variable">helper</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MimeMessageHelper</span>(message);</span><br><span class="line"></span><br><span class="line">        helper.setSubject(<span class="string">&quot;header&quot;</span>);</span><br><span class="line">        helper.setText(<span class="string">&quot;&lt;p&gt;body&lt;/p&gt;&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        helper.setTo(<span class="string">&quot;xxxx@qq.com&quot;</span>);</span><br><span class="line">        helper.setFrom(<span class="string">&quot;yyyy@qq.com&quot;</span>);</span><br><span class="line"></span><br><span class="line">        mailSender.send(message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="十二，定时任务"><a href="#十二，定时任务" class="headerlink" title="十二，定时任务"></a>十二，定时任务</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.scheduling.annotation.EnableAsync;</span><br><span class="line"><span class="keyword">import</span> org.springframework.scheduling.annotation.EnableScheduling;</span><br><span class="line"><span class="keyword">import</span> org.springframework.scheduling.annotation.Scheduled;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line"><span class="meta">@EnableAsync</span></span><br><span class="line"><span class="meta">@EnableScheduling</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TimerTask</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 秒 分 时 日 月 周几</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Scheduled(cron=&quot;0 * * * * ?&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doSomething</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;doSomething&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/10/JavaScript%E7%AC%94%E8%AE%B0/" rel="prev" title="">
+                  <i class="fa fa-chevron-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/10/MybatisPlus%E7%AC%94%E8%AE%B0/" rel="next" title="MybatisPlus笔记">
+                  MybatisPlus笔记 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BowenDeng</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
